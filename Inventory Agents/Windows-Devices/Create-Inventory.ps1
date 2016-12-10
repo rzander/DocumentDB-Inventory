@@ -1,4 +1,4 @@
-﻿function WMIInv ([string]$res, [string]$Name, [string]$query, [string]$namespace = "root\cimv2")
+function WMIInv ([string]$res, [string]$Name, [string]$query, [string]$namespace = "root\cimv2")
 {
     $out = ",`n `"$($Name)`":" 
     $out += Get-WmiObject -Namespace $namespace -Query $query -ea SilentlyContinue| select [A-Z]* -ExcludeProperty Scope,Options,ClassPath,Properties,SystemProperties,Qualifiers,Site,Container,PSComputerName, Path | ConvertTo-Json
