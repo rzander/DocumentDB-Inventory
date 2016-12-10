@@ -20,7 +20,7 @@ $res += WMIInv $res "Environment" "Select * FROM Win32_Environment" "root\cimv2"
 $res += WMIInv $res "IDEController" "Select * FROM Win32_IDEController" "root\cimv2"
 $res += WMIInv $res "NetworkAdapter" "Select * FROM Win32_NetworkAdapter" "root\cimv2"
 $res += WMIInv $res "NetworkAdapterConfiguration" "Select * FROM Win32_NetworkAdapterConfiguration" "root\cimv2"
-#$res += WMIInv $res "NetworkClient" "Select * FROM Win32_NetworkClient" "root\cimv2"
+#$res += WMIInv $res "NetrkClient" "Select * FROM Win32_NetworkClient" "root\cimv2"
 #$res += WMIInv $res "MotherboardDevice" "Select * FROM Win32_MotherboardDevice" "root\cimv2"
 $res += WMIInv $res "OperatingSystem" "Select * FROM Win32_OperatingSystem" "root\cimv2"
 #$res += WMIInv $res "Process" "Select * FROM Win32_Process" "root\cimv2"
@@ -46,4 +46,4 @@ $res += $objResults.Updates | Select-Object -Property @{n='IsInstalled';e={$_.Is
 
 $res += "`n } "
 
-$res > "$($PSScriptRoot)\$($env:COMPUTERNAME).json"
+$res > "$($env:COMPUTERNAME).json"
