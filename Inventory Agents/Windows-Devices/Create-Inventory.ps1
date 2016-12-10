@@ -46,4 +46,4 @@ $res += $objResults.Updates | Select-Object -Property @{n='IsInstalled';e={$_.Is
 
 $res += "`n } "
 
-$res > "$($env:COMPUTERNAME).json"
+$res > "$((Get-Location).Path)\$($env:COMPUTERNAME).json"
