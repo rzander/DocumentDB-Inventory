@@ -7,7 +7,8 @@ function WMIInv ([string]$res, [string]$Name, [string]$query, [string]$namespace
 
 
 $res = " { id: `"" + (Get-WmiObject Win32_ComputerSystemProduct uuid).uuid + "`","
-$res += "`n hostname: `"" + $env:COMPUTERNAME + "`""
+$res += "`n hostname: `"" + $env:COMPUTERNAME + "`","
+$res += "`n InventoryDate: `"" + $(Get-Date -format u) + "`""
 
 $res += WMIInv $res "Battery" "Select * FROM Win32_Battery" "root\cimv2"
 $res += WMIInv $res "BIOS" "Select * FROM Win32_Bios" "root\cimv2"
