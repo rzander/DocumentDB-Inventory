@@ -7,8 +7,8 @@ $connectionKey = "" #Place your Azure DocumentDB connection key here to automati
 function WMIInv ([string]$Name, [string]$query, [string]$namespace = "root\cimv2")
 {
     $jsonout = ",`n `"$($Name)`":" 
-    $val += Get-WmiObject -Namespace $namespace -Query $query -ea SilentlyContinue| select * -ExcludeProperty Scope,Options,ClassPath,Properties,SystemProperties,Qualifiers,Site,Container,PSComputerName, Path, __* | Sort | % {$_.} |ConvertTo-Json
-    if($val -eq $null) { $val = "null" } 
+    $val += Get-WmiObject -Namespace $namespace -Query $query -ea SilentlyContinue| select * -ExcludeProperty Scope,Options,ClassPath,Properties,SystemProperties,Qualifiers,Site,Container,PSComputerName, Path, __* | Sort | ConvertTo-Json
+    if($val -eq $null) { $val = " null" } 
     $jsonout += $val
     return $jsonout
 }
